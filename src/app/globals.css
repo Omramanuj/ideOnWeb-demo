@@ -1,0 +1,184 @@
+@import "xterm/css/xterm.css";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Fira+Code:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #c9d1d9;
+  --editor-background: #1a1a1a;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Glassmorphism utility class */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom scrollbar styling for glass aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) rgba(255, 255, 255, 0.02);
+}
+
+/* Ensure toolbar stays visible and maintains glass effect on scroll */
+.sticky {
+  position: sticky;
+}
+
+/* Prevent any black backgrounds from showing through on scroll */
+.glass-panel.sticky {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(12px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+}
+
+/* Monaco Editor glass theme adjustments - use global variable for consistency */
+.monaco-editor {
+  --vscode-editor-background: var(--editor-background);
+  --vscode-editor-foreground: var(--foreground);
+  background: var(--editor-background) !important;
+}
+
+.monaco-editor .monaco-editor-background {
+  background: var(--editor-background) !important;
+}
+
+.monaco-editor .margin {
+  background: transparent !important;
+}
+
+.monaco-editor .monaco-scrollable-element > .scrollbar {
+  background: transparent !important;
+}
+
+.monaco-editor .view-lines {
+  background: var(--editor-background) !important;
+}
+
+.monaco-editor .current-line {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.monaco-editor .selected-text {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Ensure consistent editor background throughout */
+.monaco-editor .overflow-guard {
+  background: var(--editor-background) !important;
+}
+
+.monaco-editor .monaco-scrollable-element {
+  background: var(--editor-background) !important;
+}
+
+/* Ensure editor content area uses global variable */
+.monaco-editor .monaco-editor {
+  background: var(--editor-background) !important;
+}
+
+/* Make minimap use global editor background for consistency */
+.monaco-editor .minimap {
+  background: var(--editor-background) !important;
+  background-color: var(--editor-background) !important;
+}
+
+.monaco-editor .minimap-shadow-visible {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.monaco-editor .minimap-shadow-hidden {
+  background: transparent !important;
+}
+
+.monaco-editor .minimap-background {
+  background: var(--editor-background) !important;
+  background-color: var(--editor-background) !important;
+}
+
+.monaco-editor .minimap-canvas {
+  background: var(--editor-background) !important;
+}
+
+.monaco-editor .minimap-decorations-layer {
+  background: transparent !important;
+}
+
+.monaco-editor .minimap-slider {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.monaco-editor .minimap-slider:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.monaco-editor .minimap-slider-mouseover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Terminal styles with glass effect - ensure no black backgrounds */
+.xterm {
+  font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  background-color: transparent !important;
+}
+
+.xterm-screen {
+  background-color: transparent !important;
+}
+
+.xterm-viewport {
+  background-color: transparent !important;
+}
+
+.xterm .xterm-viewport {
+  background-color: transparent !important;
+}
+
+/* Ensure terminal text is visible and no black backgrounds */
+.xterm .xterm-text-layer {
+  background: transparent !important;
+}
+
+.xterm .xterm-cursor-layer {
+  background: transparent !important;
+}
+
+.xterm .xterm-selection-layer {
+  background: transparent !important;
+}
